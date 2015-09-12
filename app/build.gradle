@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 'Google Inc.:Google APIs:8'
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "jhen.example.audio.app"
+        minSdkVersion 8
+        targetSdkVersion 15
+
+        ndk {
+            moduleName "libilbc"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
+
+}
+android {
+    defaultConfig {
+        ndk {
+            moduleName "ilbc-codec.c"
+            ldLibs "log"
+        }
+    }
+}
